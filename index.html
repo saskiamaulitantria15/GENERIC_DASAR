@@ -8,34 +8,37 @@
 
 <style>
 body{
-    font-family: Arial, sans-serif;
-    margin:20px;
-    background:#f5f5f5;
+    font-family:'Segoe UI',sans-serif;
+    margin:0;
+    padding:20px;
+    background:linear-gradient(135deg,#fff8dc,#ffe4ec);
 }
 
 .slide{
     background:white;
-    padding:20px;
+    padding:25px;
     margin-bottom:30px;
-    border-radius:10px;
-    box-shadow:0 2px 5px rgba(0,0,0,.1);
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 h2{
-    color:#2c6db2;
+    color:#e91e63;
 }
 
 pre{
-    background:#f8f8f8;
+    background:#fff5f8;
+    border:1px solid #ffd1e3;
+    border-radius:12px;
     padding:15px;
     overflow:auto;
-    border:1px solid #ddd;
 }
 
 iframe{
     width:100%;
-    height:500px;
+    height:600px;
     border:none;
+    border-radius:12px;
 }
 
 .dual{
@@ -45,6 +48,12 @@ iframe{
 
 .dual > div{
     flex:1;
+}
+
+@media(max-width:768px){
+    .dual{
+        flex-direction:column;
+    }
 }
 </style>
 
@@ -56,6 +65,10 @@ iframe{
 <h2>Slide 1 : Review Sesi 5 - Class Modifiers</h2>
 
 <pre><code>
+//Nama : Saskia Mauli Tantria
+//NIM  : 251410034
+//Kelas: SI2A
+
 sealed class Result {}
 class Success extends Result {}
 class Failure extends Result {}
@@ -68,15 +81,11 @@ class Failure extends Result {}
 <h2>Slide 2 : Pengantar Generic</h2>
 
 <ul>
-<li>Apa itu Generic?</li>
-<li>Analogi: Kotak penyimpanan dengan label tipe.</li>
-<li>Manfaat:
-<ul>
-<li>Type safety</li>
-<li>Code reusability</li>
-<li>Compile-time checking</li>
-</ul>
-</li>
+<li>Generic memungkinkan class dan fungsi bekerja dengan berbagai tipe data.</li>
+<li>Type Safety.</li>
+<li>Code Reusability.</li>
+<li>Compile-time Checking.</li>
+<li>Mengurangi duplikasi kode.</li>
 </ul>
 
 </div>
@@ -85,48 +94,65 @@ class Failure extends Result {}
 <div class="slide">
 <h2>Slide 3 : Masalah Tanpa Generic</h2>
 
-<iframe src="https://dartpad.dev/?id=db4385431c3171a16c68dc64de6f495a"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=db4385431c3171a16c68dc64de6f495a&run=true"></iframe>
 
 </div>
 
 <!-- SLIDE 4 -->
 <div class="slide">
-<h2>Slide 4 : Solusi dengan Generic</h2>
+<h2>Slide 4 : Solusi Dengan Generic</h2>
 
 <pre><code>
-class Box&lt;T&gt; {
+//Nama : Saskia Mauli Tantria
+//NIM  : 251410034
+//Kelas: SI2A
+
+class Box<T> {
   T data;
+
   Box(this.data);
 }
-...
+
+void main() {
+  var intBox = Box<int>(42);
+  var stringBox = Box<String>('Hello');
+
+  int value = intBox.data;
+}
 </code></pre>
 
 </div>
 
 <!-- SLIDE 5 -->
 <div class="slide">
-<h2>Slide 5 : Contoh Sintaks Generic</h2>
+<h2>Slide 5 : Generic Class dan Generic Function</h2>
 
 <div class="dual">
 
 <div>
 <pre><code>
-class MyClass&lt;T&gt; {
+//Nama : Saskia Mauli Tantria
+//NIM  : 251410034
+//Kelas: SI2A
+
+class MyClass<T> {
   T data;
+
   MyClass(this.data);
+
   T getData() {
     return data;
   }
 }
 
-T myFunc&lt;T&gt;(T value) {
+T myFunc<T>(T value) {
   return value;
 }
 </code></pre>
 </div>
 
 <div>
-<iframe src="https://dartpad.dev/?id=fac42d4413e64778455031dc922a033f"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=fac42d4413e64778455031dc922a033f&run=true"></iframe>
 </div>
 
 </div>
@@ -134,9 +160,9 @@ T myFunc&lt;T&gt;(T value) {
 
 <!-- SLIDE 6 -->
 <div class="slide">
-<h2>Slide 6 : Contoh Kelas Box&lt;T&gt;</h2>
+<h2>Slide 6 : Generic Box</h2>
 
-<iframe src="https://dartpad.dev/?id=ffb95d90e9e12895443e5aa4be82a795"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=ffb95d90e9e12895443e5aa4be82a795&run=true"></iframe>
 
 </div>
 
@@ -144,7 +170,7 @@ T myFunc&lt;T&gt;(T value) {
 <div class="slide">
 <h2>Slide 7 : Multiple Type Parameters</h2>
 
-<iframe src="https://dartpad.dev/?id=3accea9d1f1d95d0334a9d16a7dd2a79"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=3accea9d1f1d95d0334a9d16a7dd2a79&run=true"></iframe>
 
 </div>
 
@@ -152,20 +178,24 @@ T myFunc&lt;T&gt;(T value) {
 <div class="slide">
 <h2>Slide 8 : Menggabungkan Dua Nilai</h2>
 
-<iframe src="https://dartpad.dev/?id=5208119c911c0080b0322be012c403f7"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=5208119c911c0080b0322be012c403f7&run=true"></iframe>
 
 </div>
 
 <!-- SLIDE 9 -->
 <div class="slide">
-<h2>Slide 9 : Generic dengan Extends</h2>
+<h2>Slide 9 : Generic Dengan Extends</h2>
 
 <pre><code>
-class NumberBox&lt;T extends num&gt; {
+class NumberBox<T extends num> {
   T value;
+
   NumberBox(this.value);
+
+  T getValue() {
+    return value;
+  }
 }
-...
 </code></pre>
 
 </div>
@@ -174,21 +204,21 @@ class NumberBox&lt;T extends num&gt; {
 <div class="slide">
 <h2>Slide 10 : Type Inference</h2>
 
-<iframe src="https://dartpad.dev/?id=a524b4813df00c1a7a5f85143ead9f8b"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=a524b4813df00c1a7a5f85143ead9f8b&run=true"></iframe>
 
 </div>
 
 <!-- SLIDE 11 -->
 <div class="slide">
-<h2>Slide 11 : Pembatasan Tipe pada Interface dan Class</h2>
+<h2>Slide 11 : Batasan Tipe Dengan Iterable</h2>
 
-<iframe src="https://dartpad.dev/?id=280ff7c171208d3ca6dcc6dfd158925f"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=280ff7c171208d3ca6dcc6dfd158925f&run=true"></iframe>
 
 </div>
 
 <!-- SLIDE 12 -->
 <div class="slide">
-<h2>Slide 12 : Pembatasan Tipe dengan Class Abstract</h2>
+<h2>Slide 12 : Batasan Tipe Dengan Abstract Class</h2>
 
 <div class="dual">
 
@@ -212,8 +242,9 @@ class Cat implements Animal {
   }
 }
 
-class AnimalCage&lt;T extends Animal&gt; {
+class AnimalCage<T extends Animal> {
   T animal;
+
   AnimalCage(this.animal);
 
   void sound() {
@@ -224,7 +255,7 @@ class AnimalCage&lt;T extends Animal&gt; {
 </div>
 
 <div>
-<iframe src="https://dartpad.dev/?id=0978a2b2072304b73b0f9e640f5ec9bd"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=0978a2b2072304b73b0f9e640f5ec9bd&run=true"></iframe>
 </div>
 
 </div>
@@ -232,22 +263,21 @@ class AnimalCage&lt;T extends Animal&gt; {
 
 <!-- SLIDE 13 -->
 <div class="slide">
-<h2>Slide 13 : Praktik 1</h2>
+<h2>Slide 13 : Generic vs Dynamic vs Object</h2>
 
-<ul>
-<li>Buat class Repository&lt;T&gt;</li>
-<li>Buat fungsi swap&lt;T&gt;</li>
-<li>Buat class Triple&lt;A,B,C&gt;</li>
-</ul>
+<p>
+Perbandingan penggunaan Generic, Dynamic, dan Object.
+Generic lebih aman karena type checking dilakukan saat compile time.
+</p>
 
 </div>
 
 <!-- SLIDE 14 -->
 <div class="slide">
-<h2>Slide 14 : Generic vs Dynamic vs Object</h2>
+<h2>Slide 14 : Contoh Perbandingan</h2>
 
 <pre><code>
-Box&lt;int&gt; box1 = Box&lt;int&gt;(42);
+Box<int> box1 = Box<int>(42);
 dynamic box2 = 42;
 Object box3 = 42;
 </code></pre>
@@ -258,7 +288,7 @@ Object box3 = 42;
 <div class="slide">
 <h2>Slide 15 : Studi Kasus Cache Generic</h2>
 
-<iframe src="https://dartpad.dev/?id=f630bb9e04823793fd6adb82cfa4f528"></iframe>
+<iframe src="https://dartpad.dev/embed-inline.html?id=f630bb9e04823793fd6adb82cfa4f528&run=true"></iframe>
 
 </div>
 
